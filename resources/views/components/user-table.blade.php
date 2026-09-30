@@ -1,82 +1,70 @@
-<div class="card custom-card border-0 overflow-hidden">
-    <div class="card-header bg-white py-3.5 px-4 d-flex align-items-center justify-content-between border-bottom">
-        <div class="d-flex align-items-center gap-3">
-            <div class="p-2.5 bg-danger-subtle text-danger rounded-4 fs-4">
-                🎀
-            </div>
-            <div>
-                <h5 class="mb-0 fw-bold text-dark fs-5">Data Pengguna Terdaftar ✨</h5>
-                <span class="text-muted fs-7 fw-semibold">Daftar seluruh mahasiswa kelas praktikum yang aktif 🌸</span>
-            </div>
+<div class="card-aesthetic">
+    <div class="card-header-clean">
+        <div>
+            <h5>Data Pengguna Terdaftar</h5>
+            <p>Daftar seluruh mahasiswa praktikum</p>
         </div>
-        <span class="badge badge-cute-pink rounded-pill px-3.5 py-2.5 fw-bold fs-7 shadow-sm">
-            🍧 Total: {{ count($users) }} Pengguna
+        <span class="total-badge">
+            <i class="fa-solid fa-database me-1"></i> {{ count($users) }} Pengguna
         </span>
     </div>
     
     <div class="table-responsive">
-        <table class="table align-middle mb-0 custom-table">
+        <table class="table-clean">
             <thead>
                 <tr>
-                    <th scope="col" class="ps-4 text-uppercase fw-bold" style="width: 85px;"># ID</th>
-                    <th scope="col" class="text-uppercase fw-bold">Mahasiswa 🐾</th>
-                    <th scope="col" class="text-uppercase fw-bold">NPM 💳</th>
-                    <th scope="col" class="text-uppercase fw-bold">Kelas 📚</th>
-                    <th scope="col" class="pe-4 text-end text-uppercase fw-bold">Status ⭐️</th>
+                    <th style="width: 80px;">ID</th>
+                    <th>Nama Pengguna</th>
+                    <th>NPM</th>
+                    <th>Kelas</th>
+                    <th style="text-align: right;">Status</th>
                 </tr>
             </thead>
             <tbody>
                 @forelse ($users as $user)
                     <tr>
-                        <td class="ps-4 fw-bold text-secondary font-monospace">
+                        <td class="font-monospace fw-semibold text-secondary">
                             #{{ sprintf('%02d', $user->id) }}
                         </td>
                         <td>
-                            <div class="d-flex align-items-center gap-3">
-                                <div class="avatar-circle">
+                            <div class="user-info">
+                                <div class="avatar-rose">
                                     {{ strtoupper(substr($user->nama, 0, 1)) }}
                                 </div>
                                 <div>
-                                    <div class="fw-bold text-dark fs-6 mb-0">{{ $user->nama }}</div>
-                                    <span class="text-muted fs-7 fw-semibold">Mahasiswa S1 Ilmu Komputer Unila 🎓</span>
+                                    <div class="user-name">{{ $user->nama }}</div>
+                                    <div class="user-sub">Mahasiswa S1 Ilmu Komputer</div>
                                 </div>
                             </div>
                         </td>
                         <td>
-                            <span class="badge bg-white text-dark border border-danger-subtle px-3 py-2 font-monospace fs-7 rounded-pill shadow-sm">
-                                🆔 {{ $user->npm ?? $user->nim }}
+                            <span class="badge-npm">
+                                <i class="fa-solid fa-id-card text-muted"></i>
+                                <span>{{ $user->npm ?? $user->nim }}</span>
                             </span>
                         </td>
                         <td>
-                            @php
-                                $classBadge = match(strtoupper($user->nama_kelas)) {
-                                    'A' => 'badge-class-a',
-                                    'B' => 'badge-class-b',
-                                    'C' => 'badge-class-c',
-                                    'D' => 'badge-class-d',
-                                    default => 'badge-class-a'
-                                };
-                            @endphp
-                            <span class="badge {{ $classBadge }} rounded-pill px-3 py-2 fw-bold fs-7 shadow-sm">
-                                🏫 Kelas {{ $user->nama_kelas }}
+                            <span class="badge-kelas">
+                                <i class="fa-solid fa-chalkboard-user"></i>
+                                <span>Kelas {{ $user->nama_kelas }}</span>
                             </span>
                         </td>
-                        <td class="pe-4 text-end">
-                            <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-3 py-1.5 fs-7 d-inline-flex align-items-center gap-1.5 fw-bold shadow-sm">
-                                <span class="dot-pulse"></span>
-                                <span>Aktif ✨</span>
+                        <td style="text-align: right;">
+                            <span class="badge-status">
+                                <span class="status-dot"></span>
+                                <span>Aktif</span>
                             </span>
                         </td>
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="5" class="text-center py-5">
-                            <div class="empty-state py-4">
-                                <span class="display-3 mb-3 d-block">🐱</span>
-                                <h5 class="fw-bold text-secondary mb-1">Belum Ada Data Pengguna Gemas</h5>
-                                <p class="text-muted small mb-3">Yuk tambahkan data pengguna baru melalui tombol cantik di bawah ini! 💖</p>
-                                <a href="{{ url('/user/create') }}" class="btn btn-gradient btn-sm px-4 rounded-pill">
-                                    <span>➕ Tambah Pengguna</span>
+                        <td colspan="5" style="text-align: center; padding: 3rem 1rem;">
+                            <div style="color: #94a3b8; font-size: 0.9rem;">
+                                <i class="fa-solid fa-folder-open display-6 mb-2 text-muted d-block"></i>
+                                <strong>Belum Ada Data Pengguna</strong>
+                                <p class="small mb-3">Silakan tambahkan data pengguna baru melalui tombol di atas.</p>
+                                <a href="{{ url('/user/create') }}" class="btn-rose">
+                                    <i class="fa-solid fa-plus fs-7"></i> Tambah Pengguna
                                 </a>
                             </div>
                         </td>
