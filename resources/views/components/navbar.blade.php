@@ -33,9 +33,9 @@
                 </li>
             </ul>
 
-            <!-- Add User Button -->
+            <!-- Add User Solid Rose Button -->
             <div>
-                <a href="{{ url('/user/create') }}" class="btn-add-user">
+                <a href="{{ url('/user/create') }}" class="btn-rose">
                     <i class="fa-solid fa-plus fs-7"></i>
                     <span>Pengguna Baru</span>
                 </a>
