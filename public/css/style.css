@@ -1,0 +1,474 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* ==========================================================================
+   GLOBAL RESET & LAYOUT SYSTEM
+   ========================================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+ul, ol {
+    list-style: none !important;
+    padding-left: 0 !important;
+    margin: 0 !important;
+}
+
+a {
+    text-decoration: none !important;
+    transition: all 0.2s ease;
+}
+
+:root {
+    --font-primary: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* Professional Rose Palette */
+    --rose-700: #be123c;
+    --rose-600: #e11d48;
+    --rose-500: #f43f5e;
+    --rose-200: #fecdd3;
+    --rose-100: #ffe4e6;
+    --rose-50:  #fff1f2;
+
+    --slate-900: #0f172a;
+    --slate-800: #1e293b;
+    --slate-700: #334155;
+    --slate-600: #475569;
+    --slate-500: #64748b;
+    --slate-400: #94a3b8;
+    --slate-200: #e2e8f0;
+    --slate-100: #f1f5f9;
+    --slate-50:  #f8fafc;
+
+    --gradient-rose: linear-gradient(135deg, #e11d48 0%, #be123c 100%);
+    --gradient-blush: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%);
+    --gradient-bg: linear-gradient(180deg, #fdf2f8 0%, #faf5f8 40%, #f8fafc 100%);
+
+    --shadow-card: 0 10px 30px -5px rgba(225, 29, 72, 0.08), 0 4px 12px -2px rgba(15, 23, 42, 0.03);
+    --shadow-hover: 0 16px 36px -4px rgba(225, 29, 72, 0.15), 0 6px 16px -4px rgba(15, 23, 42, 0.05);
+
+    --border-rose: 1px solid rgba(244, 63, 94, 0.15);
+}
+
+body {
+    font-family: var(--font-primary);
+    background: var(--gradient-bg);
+    background-attachment: fixed;
+    color: var(--slate-700);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container-centered {
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* ==========================================================================
+   ROSE BUTTON STYLING (ALWAYS SOLID & STUNNING)
+   ========================================================================== */
+.btn-rose, .btn-danger.btn-rose {
+    background: linear-gradient(135deg, #e11d48 0%, #be123c 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 12px !important;
+    padding: 0.65rem 1.4rem !important;
+    font-weight: 700 !important;
+    font-size: 0.9rem !important;
+    box-shadow: 0 4px 14px rgba(225, 29, 72, 0.3) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.btn-rose:hover, .btn-danger.btn-rose:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 22px rgba(225, 29, 72, 0.45) !important;
+    color: #ffffff !important;
+}
+
+.btn-outline-rose, .btn-outline-danger {
+    background: #ffffff !important;
+    color: #e11d48 !important;
+    border: 1.5px solid #fecdd3 !important;
+    border-radius: 12px !important;
+    padding: 0.6rem 1.25rem !important;
+    font-weight: 600 !important;
+    font-size: 0.875rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.4rem !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+}
+
+.btn-outline-rose:hover, .btn-outline-danger:hover {
+    background: #fff1f2 !important;
+    border-color: #f43f5e !important;
+    color: #be123c !important;
+    transform: translateY(-1px) !important;
+}
+
+/* ==========================================================================
+   HEADER & NAVBAR
+   ========================================================================== */
+.custom-navbar {
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--rose-100);
+    padding: 1rem 0;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-content {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100%;
+}
+
+.brand-area {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.brand-icon {
+    width: 38px;
+    height: 38px;
+    background: var(--gradient-rose);
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 12px rgba(225, 29, 72, 0.25);
+}
+
+.brand-title {
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: var(--slate-900);
+    letter-spacing: -0.02em;
+}
+
+.brand-title span {
+    color: var(--rose-600);
+}
+
+.nav-links {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 0.5rem;
+    margin: 0 !important;
+}
+
+.nav-item-link {
+    font-weight: 600;
+    font-size: 0.925rem;
+    color: var(--slate-600);
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: all 0.2s ease;
+}
+
+.nav-item-link:hover {
+    color: var(--rose-600);
+    background-color: var(--rose-50);
+}
+
+.nav-item-link.active {
+    color: var(--rose-600);
+    background-color: var(--rose-100);
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   CARDS & TABLES
+   ========================================================================== */
+.card-aesthetic {
+    background: #ffffff;
+    border-radius: 18px;
+    border: var(--border-rose);
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+    width: 100%;
+}
+
+.card-header-clean {
+    background: #ffffff;
+    padding: 1.25rem 1.75rem;
+    border-bottom: 1px solid var(--slate-100);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-header-clean h5 {
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--slate-900);
+    margin: 0;
+}
+
+.card-header-clean p {
+    font-size: 0.85rem;
+    color: var(--slate-500);
+    margin: 0;
+}
+
+.total-badge {
+    background-color: var(--rose-50);
+    color: var(--rose-700);
+    border: 1px solid var(--rose-200);
+    font-weight: 700;
+    font-size: 0.825rem;
+    padding: 0.4rem 0.9rem;
+    border-radius: 50px;
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.table-clean {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.table-clean thead th {
+    background-color: var(--rose-50);
+    color: var(--rose-800);
+    font-size: 0.775rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 1rem 1.5rem;
+    border-bottom: 1.5px solid var(--rose-200);
+}
+
+.table-clean tbody tr {
+    transition: background-color 0.15s ease;
+}
+
+.table-clean tbody tr:hover {
+    background-color: #fff8f9;
+}
+
+.table-clean tbody td {
+    padding: 1.15rem 1.5rem;
+    border-bottom: 1px solid var(--slate-100);
+    vertical-align: middle;
+}
+
+/* User Info */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.avatar-rose {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: var(--gradient-blush);
+    color: var(--rose-700);
+    font-weight: 800;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px solid var(--rose-200);
+    box-shadow: 0 2px 8px rgba(244, 63, 94, 0.12);
+    flex-shrink: 0;
+}
+
+.user-name {
+    font-weight: 700;
+    font-size: 0.975rem;
+    color: var(--slate-900);
+}
+
+.user-sub {
+    font-size: 0.825rem;
+    color: var(--slate-500);
+}
+
+/* Badges */
+.badge-npm {
+    background-color: var(--slate-50);
+    color: var(--slate-700);
+    border: 1px solid var(--slate-200);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.35rem 0.8rem;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.badge-kelas {
+    background-color: var(--rose-100);
+    color: var(--rose-800);
+    border: 1px solid var(--rose-200);
+    font-weight: 700;
+    font-size: 0.825rem;
+    padding: 0.4rem 0.85rem;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.badge-status {
+    background-color: #dcfce7;
+    color: #15803d;
+    border: 1px solid #bbf7d0;
+    font-weight: 700;
+    font-size: 0.825rem;
+    padding: 0.35rem 0.8rem;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #16a34a;
+    border-radius: 50%;
+}
+
+/* ==========================================================================
+   FORM DESIGN
+   ========================================================================== */
+.form-card-container {
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.35rem;
+    width: 100%;
+}
+
+.form-label-clean {
+    display: block;
+    width: 100%;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--slate-800);
+    margin-bottom: 0.45rem;
+}
+
+.form-control-clean, .form-select-clean {
+    display: block !important;
+    width: 100% !important;
+    padding: 0.8rem 1.1rem !important;
+    font-size: 0.95rem !important;
+    font-family: var(--font-primary);
+    color: var(--slate-800) !important;
+    background-color: #ffffff !important;
+    border: 1.5px solid var(--slate-200) !important;
+    border-radius: 12px !important;
+    transition: all 0.2s ease !important;
+}
+
+.form-control-clean:focus, .form-select-clean:focus {
+    border-color: var(--rose-500) !important;
+    box-shadow: 0 0 0 4px rgba(225, 29, 72, 0.12) !important;
+    outline: none !important;
+}
+
+.btn-submit-clean {
+    display: block !important;
+    width: 100% !important;
+    padding: 0.85rem 1.5rem !important;
+    background: var(--gradient-rose) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 12px !important;
+    font-weight: 700 !important;
+    font-size: 0.95rem !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 14px rgba(225, 29, 72, 0.3) !important;
+    transition: all 0.2s ease !important;
+    text-align: center;
+}
+
+.btn-submit-clean:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 22px rgba(225, 29, 72, 0.45) !important;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.custom-footer {
+    background: #ffffff;
+    border-top: 1px solid var(--slate-200);
+    padding: 1.5rem 0;
+    margin-top: auto;
+    width: 100%;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.footer-text {
+    font-size: 0.85rem;
+    color: var(--slate-500);
+}
+
+.footer-text strong {
+    color: var(--slate-800);
+}
+
+.footer-badge {
+    background-color: var(--slate-50);
+    color: var(--slate-700);
+    border: 1px solid var(--slate-200);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.35rem 0.85rem;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.font-monospace {
+    font-family: var(--font-mono) !important;
+}
