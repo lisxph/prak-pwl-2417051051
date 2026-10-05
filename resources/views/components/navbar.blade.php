@@ -26,6 +26,12 @@
                     </a>
                 </li>
                 <li>
+                    <a class="nav-item-link {{ request()->is('matakuliah') ? 'active' : '' }}" href="{{ url('/matakuliah') }}">
+                        <i class="fa-solid fa-book opacity-75"></i>
+                        <span>Mata Kuliah</span>
+                    </a>
+                </li>
+                <li>
                     <a class="nav-item-link {{ request()->is('profile*') ? 'active' : '' }}" href="{{ url('/profile') }}">
                         <i class="fa-solid fa-id-card opacity-75"></i>
                         <span>Profile</span>
