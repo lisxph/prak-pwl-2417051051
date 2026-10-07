@@ -472,3 +472,140 @@ body {
 .font-monospace {
     font-family: var(--font-mono) !important;
 }
+
+/* ==========================================================================
+   ALERTS & NOTIFICATIONS
+   ========================================================================== */
+.alert-custom {
+    border: none;
+    border-radius: 14px;
+    padding: 1rem 1.35rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 8px 24px -4px rgba(15, 23, 42, 0.06);
+    animation: slideDownAlert 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideDownAlert {
+    from { opacity: 0; transform: translateY(-12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.alert-custom-success {
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    border-left: 5px solid #16a34a;
+    color: #15803d;
+}
+
+.alert-custom-error {
+    background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+    border-left: 5px solid #dc2626;
+    color: #b91c1c;
+}
+
+/* ==========================================================================
+   ACTION BUTTONS (EDIT & DELETE)
+   ========================================================================== */
+.btn-action-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-action-edit {
+    background-color: #eff6ff !important;
+    color: #2563eb !important;
+    border: 1.5px solid #bfdbfe !important;
+    border-radius: 10px !important;
+    padding: 0.45rem 0.9rem !important;
+    font-size: 0.825rem !important;
+    font-weight: 700 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.4rem !important;
+    text-decoration: none !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    cursor: pointer !important;
+}
+
+.btn-action-edit:hover {
+    background-color: #2563eb !important;
+    color: #ffffff !important;
+    border-color: #2563eb !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3) !important;
+}
+
+.btn-action-delete {
+    background-color: #fff1f2 !important;
+    color: #e11d48 !important;
+    border: 1.5px solid #fecdd3 !important;
+    border-radius: 10px !important;
+    padding: 0.45rem 0.9rem !important;
+    font-size: 0.825rem !important;
+    font-weight: 700 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.4rem !important;
+    text-decoration: none !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    cursor: pointer !important;
+}
+
+.btn-action-delete:hover {
+    background-color: #e11d48 !important;
+    color: #ffffff !important;
+    border-color: #e11d48 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 16px rgba(225, 29, 72, 0.35) !important;
+}
+
+/* ==========================================================================
+   BADGES & TABLE ENHANCEMENTS
+   ========================================================================== */
+.badge-uuid {
+    background: #fff1f2;
+    color: #be123c;
+    border: 1px solid #fecdd3;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    letter-spacing: -0.01em;
+}
+
+.badge-sks {
+    background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%);
+    color: #be123c;
+    border: 1px solid #fecdd3;
+    font-weight: 800;
+    font-size: 0.825rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    box-shadow: 0 2px 6px rgba(244, 63, 94, 0.08);
+}
+
+.avatar-mk {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #ffe4e6 0%, #fecdd3 100%);
+    color: #be123c;
+    font-weight: 800;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px solid #fecdd3;
+    flex-shrink: 0;
+}
+
